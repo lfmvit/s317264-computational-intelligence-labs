@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "lab1"
+version = "1.0"
+description = "A* search algorithm for the set covering problem"
+authors = ["LORIS FABRIZIO MARIO VITALE S317264 <s317264@studenti.polito.it>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "no"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
