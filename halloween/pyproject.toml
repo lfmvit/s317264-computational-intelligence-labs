@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "challenge"
+version = "0.1.0"
+description = ""
+authors = ["LORIS FABRIZIO MARIO VITALE S317264 <s317264@studenti.polito.it>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
