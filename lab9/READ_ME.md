@@ -4,8 +4,13 @@
 The provided code implements a Genetic Algorithm (GA) to solve an optimization problem. The algorithm involves evolving a population of individuals over multiple generations, applying crossover and mutation operations to create new individuals, and selecting the best individuals based on a fitness function.
 
 
+
 ## Genetic Algorithm Class
 The `GeneticAlgorithm` class is the core of the implementation. It is initialized with parameters such as the number of populations, population size, genome length, crossover rate, mutation rate, and the fitness function. Key methods and attributes include:
+
+**The algorithm is designed to minimize the number of fitness calls, but how much is too much?**
+
+ For this lab i tried to aim for about 100k calls as a ceiling for problem instance = 10 for the 100th generation, that is the most "expensive" one.
 
 - `initialize_population`: Creates initial populations for each island using random binary strings of 0s and 1s.
 - `custom_crossover`: Performs a custom crossover between two individuals, allowing the exchange of genetic material in segments.
@@ -29,10 +34,25 @@ The algorithm includes a method (`plot_fitness_history`) for visualizing the cha
 ## Execution
 The GA is executed for each problem instance given by the lab specification, and the best individual, best fitness, and total fitness calls are printed for each instance.
 
+## Results 
+- Problem 1
+
+![Alt text](image.png)
+
+- Problem 2
+![Alt text](image-1.png)
+
+- Problem 5
+![Alt text](image-2.png)
+
+- Problem 10
+![Alt text](image-3.png)
+
 ## Comments
 
+- The algorithm always perform equal or better in the problem instance = 2 rather than = 1, most likely due to the mutate method.
 
-- The choice of parameters such as crossover rate, mutation rate, and the number of populations may significantly impact algorithm performance, the ones I used are the result of a lot of trial and error. Experimenting with different parameter values could leave to better (or worse) results.
+- The choice of parameters such as crossover rate, mutation rate, and the number of populations may significantly impact algorithm performance, the ones I used are the result of a lot of trial and error.Experimenting with different parameter values could leave to better (or worse) results.
 
 - The implementation is generalized to accommodate different types of problems by allowing users to define their custom fitness functions, so long the problem involves binary genomes.
 
