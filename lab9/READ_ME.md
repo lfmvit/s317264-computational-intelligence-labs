@@ -59,4 +59,4 @@ Overall, the code provides (hopefully) a decent try for solving the optimization
 
 ## Collaborations / Sources
 
-For this laboratory I worked alone since most of my close friends dropped the course... but in general I sticked exploiting the basic python documentation to implement the GA class and matplot method, it seems that most of the other collegues used it to provide a nice graph to show the results instead of the ugly console log that I used in the previous labs.
+For this laboratory I worked alone since most of my close friends dropped the course... but in general I sticked exploiting the basic python documentation to implement the GA class and matplot method, it seems that most of the other collegues (can't point anyone in particular) used it to provide a nice graph to show the results instead of the ugly console log that I used in the previous labs, so I adopted the same approach.
