@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "lab9"
+version = "0.1.0"
+description = "assignement for lab9"
+authors = ["lfmvit <80250410+lfmvit@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+deap = "^1.4.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
