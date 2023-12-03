@@ -49,7 +49,7 @@ The GA is executed for each problem instance given by the lab specification, and
 
 ## Comments
 
-- The algorithm always perform equal or better in the problem instance = 2 rather than = 1, most likely due to the mutate method.
+- The algorithm always performs equal or better in the problem instance = 2 rather than = 1, most likely due to the mutate method.
 
 - The choice of parameters such as crossover rate, mutation rate, and the number of populations may significantly impact algorithm performance, the ones I used are the result of a lot of trial and error.Experimenting with different parameter values could leave to better (or worse) results.
 
