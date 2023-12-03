@@ -37,16 +37,12 @@ The GA is executed for each problem instance given by the lab specification, and
 ## Results 
 - ### Problem 1
 ![Alt text](image.png)
-
 - ### Problem 2
 ![Alt text](image-1.png)
-
 - ### Problem 5
 ![Alt text](image-2.png)
-
 - ### Problem 10
 ![Alt text](image-3.png)
-
 ## Comments
 
 - The algorithm always performs equal or better in the problem instance = 2 rather than = 1, most likely due to the mutate method.
