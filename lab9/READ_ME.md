@@ -32,20 +32,19 @@ The code provides an example of running the GA for multiple problem instances de
 The algorithm includes a method (`plot_fitness_history`) for visualizing the change in best fitness values across generations. The plot displays individual vertical lines at specified markers and corresponding fitness values.
 
 ## Execution
-The GA is executed for each problem instance given by the lab specification, and the best individual, best fitness, and total fitness calls are printed for each instance.
+The GA is executed for each problem instance given by the lab specification, and the best individual, best fitness, and total fitness calls are printed for each instance [1,2,5,10].
 
 ## Results 
-- Problem 1
-
+- ### Problem 1
 ![Alt text](image.png)
 
-- Problem 2
+- ### Problem 2
 ![Alt text](image-1.png)
 
-- Problem 5
+- ### Problem 5
 ![Alt text](image-2.png)
 
-- Problem 10
+- ### Problem 10
 ![Alt text](image-3.png)
 
 ## Comments
