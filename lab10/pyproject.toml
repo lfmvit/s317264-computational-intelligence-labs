@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "lab10"
+version = "0.1.0"
+description = ""
+authors = ["lfmvit <80250410+lfmvit@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pandas = "^2.1.4"
+seaborn = "^0.13.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
