@@ -209,3 +209,4 @@ class Game(object):
                 # move the piece down
                 self._board[(self._board.shape[0] - 1, from_pos[1])] = piece
         return acceptable
+ 
