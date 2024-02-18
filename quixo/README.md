@@ -72,7 +72,10 @@ Based of various batch of 100 games each played, with a depth of 2 for the minma
 ### Failed Experiment
 The first implementation of the Quixo agent relied of RL, following the approach of the Lab10 of Loris Vitale s317264 (https://github.com/lfmvit/s317264-computational-intelligence-labs/tree/main/lab10), making also use of the paper "Quixo Is Solved" (https://www.researchgate.net/publication/362416260_Quixo_is_Solved). 
 
-Ideally, as stated in the paper, it is possible to completely solve Quixo, by evaluating al the possible state using smart optimization techinques to represent the states. After various attempts and lot of time spent reading the paper we realized that the premises of the paper were not actually feasible, the amount of RAM needed far exceeds the theoretical 16GB calulated by the authors due to instrinc overhead of the data structures used and memory alignement performed internally during memory management in the execution environment. Still we managed to create a simple, less powerfull using MonteCarlo approach, but the performances against the RandomPlayer were really bad, so it's been discarded in the final version. The MinMax strategy revealed much simpler and powerfull for the game of Quixo.
+Ideally, as stated in the paper, it is possible to completely solve Quixo, by evaluating al the possible state using smart optimization techinques to represent the states. After various attempts and lot of time spent reading the paper we realized that the premises of the paper were not actually feasible, the amount of RAM needed far exceeds the theoretical 16GB calulated by the authors due to instrinc overhead of the data structures used and memory alignement performed internally during memory management in the execution environment.
+
+We then tried to create a simpler agent using MonteCarlo approach, but the performances against the RandomPlayer were really bad, after that, we decided to start from fresh and go for Minmax that revealed to be much simpler and powerfull for the game of Quixo.
+
 
 
 ### Collaborations and External Sources
