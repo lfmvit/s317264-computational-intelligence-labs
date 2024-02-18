@@ -104,76 +104,67 @@ class MinMaxFragger(Player):
             return min_eval, best_move
 
     def evaluate(self, quixo_game: EnhancedGame) -> float:
+        # Check for a winner and return appropriate values
         winner = quixo_game.check_winner()
         if winner == 1:
             return float('-inf')
         elif winner == 0:
             return float('inf')
         
-        X = []
-        O = []
+        # Initialize lists for tracking row and column scores
+        row_scores = []
+        col_scores = []
+
+        # Calculate scores for rows and columns
         for i in range(quixo_game._board.shape[0]):
-            x_r = 0
-            x_c = 0
-            o_r = 0
-            o_c = 0
-            for j in range(quixo_game._board.shape[1]):
-                if quixo_game._board[i,j] == 0:
-                    x_r += 1
-                elif quixo_game._board[i,j] == 1:
-                    o_r += 1
-                
-                if quixo_game._board[j,i] == 0:
-                    x_c += 1
-                elif quixo_game._board[j,i] == 1:
-                    o_c += 1
-            X.append(x_r)
-            X.append(x_c)
-            O.append(o_r)
-            O.append(o_c)
+            x_r = sum([1 for j in range(quixo_game._board.shape[1]) if quixo_game._board[i,j] == 0])
+            o_r = sum([1 for j in range(quixo_game._board.shape[1]) if quixo_game._board[i,j] == 1])
+            row_scores.extend([x_r, o_r])
 
-        x_d1 = 0
-        x_d2 = 0
-        o_d1 = 0
-        o_d2 = 0
-        for i in range(quixo_game._board.shape[0]):
-            if quixo_game._board[i,i] == 0:
-                x_d1 += 1
-            elif quixo_game._board[i,i] == 1:
-                o_d1 += 1
+            x_c = sum([1 for j in range(quixo_game._board.shape[1]) if quixo_game._board[j,i] == 0])
+            o_c = sum([1 for j in range(quixo_game._board.shape[1]) if quixo_game._board[j,i] == 1])
+            col_scores.extend([x_c, o_c])
 
-            if quixo_game._board[i, -(i+1)] == 0:
-                x_d2 += 1
-            elif quixo_game._board[i,-(i+1)] == 1:
-                o_d2 += 1
+        # Calculate scores for diagonals
+        x_d1 = sum([1 for i in range(quixo_game._board.shape[0]) if quixo_game._board[i,i] == 0])
+        o_d1 = sum([1 for i in range(quixo_game._board.shape[0]) if quixo_game._board[i,i] == 1])
+        
+        x_d2 = sum([1 for i in range(quixo_game._board.shape[0]) if quixo_game._board[i, -(i+1)] == 0])
+        o_d2 = sum([1 for i in range(quixo_game._board.shape[0]) if quixo_game._board[i, -(i+1)] == 1])
 
+        # Initialize the evaluation value
         evaluation = 0
-        for i in range(len(X)):
-            val = X[i] / 4 - O[i] / 4
-            if X[i] > O[i]:
-                val += X[i]*0.1
+
+        # Calculate scores for rows and columns
+        for i in range(len(row_scores)):
+            val = row_scores[i] / 4 - col_scores[i] / 4
             
-            if X[i] < O[i]:
-                val -= O[i]*0.1
+            if row_scores[i] > col_scores[i]:
+                val += row_scores[i]*0.1
+            elif row_scores[i] < col_scores[i]:
+                val -= col_scores[i]*0.1
 
-            if i<2 or i>=len(X)-2:
-                val = val * 1.5
+            if i<2 or i>=len(row_scores)-2:
+                val *= 1.5
+            
             evaluation += val
-        
-        val = x_d1 / 4 - o_d1 / 4
-        if x_d1 > o_d1:
-            val += x_d1*0.1
-        
-        if x_d1 < o_d1:
-            val -= o_d1*0.1
-        
-        evaluation += val
 
-        val = x_d2 / 4 - o_d2 / 4
-        if x_d2 > o_d2:
-            val += x_d2*0.1
+        # Calculate scores for diagonals
+        val_d1 = x_d1 / 4 - o_d1 / 4
+        if x_d1 > o_d1:
+            val_d1 += x_d1*0.1
+        elif x_d1 < o_d1:
+            val_d1 -= o_d1*0.1
         
-        if x_d2 < o_d2:
-            val -= o_d2*0.1
-        evaluation += val
+        evaluation += val_d1
+
+        val_d2 = x_d2 / 4 - o_d2 / 4
+        if x_d2 > o_d2:
+            val_d2 += x_d2*0.1
+        elif x_d2 < o_d2:
+            val_d2 -= o_d2*0.1
+        
+        evaluation += val_d2
+
+        # Return the final evaluation value
         return evaluation
